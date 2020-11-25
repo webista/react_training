@@ -1,0 +1,70 @@
+.Tasks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.Task {
+  position: relative;
+  display: flex;
+  // flex: 1;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 300px;
+  min-width: 200px;
+  max-width: 300px;
+  min-height: 100px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  background-color: $grey--light;
+  border-radius: 2px;
+  padding: 20px 10px 10px;
+  margin: 0px 10px 20px;
+  // For an effect/anim only
+  opacity: 0;
+  transform: translate3d(0px, -5px, 0px);
+  animation-name: FadeInDown;
+  animation-duration: 0.4s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-delay: 0s;
+
+  @media #{$phone-640-max} {
+    flex-basis: calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+
+  &-textContainer {
+    width: 100%;
+  }
+
+  &-heading {
+    @include typo($black, $baseFontSize + 4, $bold, 1.2);
+    margin: 0;
+  }
+
+  &-text {
+    @include typo($black, $baseFontSize, $normal, 1.5);
+  }
+
+  &-buttonContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .Button {
+      flex-basis: 40%;
+      max-width: 40%;
+      margin: 20px 5px 0;
+    }
+  }
+}

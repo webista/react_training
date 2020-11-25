@@ -2,6 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Custom added
+
+- npm install node-sass@4.14.1 (the latest version 5.0.0 caused an error)
+- npm install react-router-dom
+- npm install axios
+
 ## Available Scripts
 
 In the project directory, you can run:
