@@ -55,7 +55,7 @@ function FetchData() {
         <div className="Form-rowFlex">
           <label className="Form-label mr10 xs-mb10">Resources</label>
           <CustomSelect data={RESOURCES} />
-          <label className="Form-label ml10 mr10 xs-mb10" htmlFor="count">
+          <label className="Form-label ml10 mr10 xs-mt10 xs-mb10" htmlFor="count">
             Items (1 - 10)
           </label>
           <input className="Form-input Form-input--w80 mr10" type="number" name="" value={count} min="1" max="10" onChange={(e) => setCount(e.target.value && parseInt(e.target.value))} id="count" />

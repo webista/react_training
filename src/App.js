@@ -47,7 +47,7 @@ function App() {
     <TestContext.Provider value={999}>
       <CountContext.Provider value={{ countState: count, countDispatch: dispatch }}>
         <ModalContext.Provider value={{ setModal, setModalMessage, setModalComplexContent }}>
-          <BrowserRouter>
+          <BrowserRouter basename="/react_training">
             <Header />
             <Switch>
               {/* Route is the conditionally shown component based on matching a path to a URL. */}

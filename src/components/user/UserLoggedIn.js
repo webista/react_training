@@ -11,7 +11,6 @@ function UserLoggedIn() {
   user.email = localStorage.getItem("reactTraining-user-email");
   user.password = localStorage.getItem("reactTraining-user-password");
   user.isLoggedIn = Boolean(parseInt(localStorage.getItem("reactTraining-user-isLoggedIn")));
-  // user.isSignedUp = Boolean(localStorage.getItem("reactTraining-user-id"));
 
   const history = useHistory();
   const { path } = useRouteMatch();

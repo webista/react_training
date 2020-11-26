@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Switch, useRouteMatch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Page from "../Page";
 import UserLoggedOut from "./UserLoggedOut";
 import UserLoggedIn from "./UserLoggedIn";
@@ -22,23 +22,21 @@ function User() {
     console.log("User logged in:", loggedIn);
   }, [loggedIn]);
 
-  let { path } = useRouteMatch();
-
   return (
     <UserContext.Provider value={{ user, setLoggedIn }}>
-      <BrowserRouter>
+      <BrowserRouter basename="/react_training">
         <Switch>
-          <Route exact path={path}>
+          <Route exact path="/user">
             <Page title="User">
               <h2>User page</h2>
               <p>This is User page using Local Storage as a DB simulation</p>
               {user.isLoggedIn ? <UserLoggedIn /> : <UserLoggedOut />}
             </Page>
           </Route>
-          <Route path={`${path}/log_in`} component={LogIn} exact />
-          <Route path={`${path}/sign_up`} component={SignUp} exact />
-          <Route path={`${path}/account`} component={Account} exact />
-          <Route path={`${path}/tasks`} component={Tasks} exact />
+          <Route path="/user/log_in" component={LogIn} exact />
+          <Route path="/user/sign_up" component={SignUp} exact />
+          <Route path="/user/account" component={Account} exact />
+          <Route path="/user/tasks" component={Tasks} exact />
         </Switch>
       </BrowserRouter>
     </UserContext.Provider>

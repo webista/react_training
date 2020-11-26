@@ -40,7 +40,7 @@ function MetalBands() {
         <div className="Form-rowFlex">
           <label className="Form-label mr10 xs-mb10">Music style</label>
           <CustomSelect data={getMetalStyles(music)} />
-          <button className="Button Button--primary ml10 xs-mt10" type="submit">
+          <button className="Button Button--primary ml10 mr10 xs-mt10" type="submit">
             Show some bands
           </button>
         </div>

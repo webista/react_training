@@ -36,11 +36,6 @@
   animation-iteration-count: 1;
   animation-delay: 0s;
 
-  @media #{$phone-640-max} {
-    flex-basis: calc(50% - 20px);
-    max-width: calc(50% - 20px);
-  }
-
   &-textContainer {
     width: 100%;
   }
