@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Page from "./Page";
 import CountContext from "../contexts/CountContext";
 import ModalContext from "../contexts/ModalContext";
@@ -9,6 +9,12 @@ function HomePage() {
   const [error, setError] = useState("");
   const countContext = useContext(CountContext);
   const { setModal, setModalMessage } = useContext(ModalContext);
+  const textarea = useRef(null);
+
+  useEffect(() => {
+    // Focus the textarea using useRef Hook
+    textarea.current.focus();
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -32,7 +38,7 @@ function HomePage() {
       </p>
       <form className="Form Form--narrow mt30" onSubmit={handleSubmit}>
         <label className="Form-label block">Type something</label>
-        <textarea className="Form-textarea ta-center w100p mt10" type="text" rows="2" defaultValue={text} onChange={(e) => setText(e.target.value)} />
+        <textarea className="Form-textarea ta-center w100p mt10" type="text" rows="2" defaultValue={text} onChange={(e) => setText(e.target.value)} ref={textarea} />
         {error && <p className="Form-message Form-message--warning">{error}</p>}
         <button className="Button Button--primary w100p mt10" type="submit">
           Show it in a Modal

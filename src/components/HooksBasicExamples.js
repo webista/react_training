@@ -21,9 +21,13 @@
  * * useContext()
  * Use for global state management
  *
+ * * useRef()
+ * Use to store any mutable value or hold a reference to DOM node using the ref attribute
+ * Stored value will persist through the re-renders
+ *
  */
 
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer, useRef, useState } from "react";
 import Page from "./Page";
 import Tile from "./Tile";
 import TestContext from "../contexts/TestContext";
@@ -49,7 +53,6 @@ function HooksBasicExamples() {
     useEffect(() => {
       // ! Prevent set state to an unmounted component, see https://www.debuggr.io/react-update-unmounted-component/ (not necessary due clean-up function)
       // let isMounted = true;
-
       const interval = setInterval(() => {
         // if (isMounted) {
         setTime(new Date().toLocaleString());
@@ -60,7 +63,6 @@ function HooksBasicExamples() {
       return () => {
         clearInterval(interval);
       };
-
       // return () => (isMounted = false);
     }, []);
 
@@ -208,6 +210,32 @@ function HooksBasicExamples() {
     );
   }
 
+  function CounterWithRef() {
+    const [count, setCount] = useState(0);
+    const interval = useRef();
+
+    useEffect(() => {
+      interval.current = setInterval(() => {
+        setCount((prevCount) => prevCount + 1);
+      }, 1000);
+      return () => {
+        clearInterval(interval.current);
+      };
+    }, []);
+
+    return (
+      <section>
+        <h3>Counter with useRef</h3>
+        <p>
+          Local count: <var>{count}</var>
+        </p>
+        <button className="Button Button--danger mt20" type="button" onClick={() => clearInterval(interval.current)}>
+          Stop it
+        </button>
+      </section>
+    );
+  }
+
   function ColorSwitcher() {
     const [isPrimary, setColor] = useState(true);
 
@@ -247,6 +275,7 @@ function HooksBasicExamples() {
       <Coordinates />
       <Counter />
       <CounterWithReducer />
+      <CounterWithRef />
       <ColorSwitcher />
       <ShowHide />
     </Page>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import ModalContext from "../contexts/ModalContext";
 
 function CreateGreeting(props) {
@@ -7,6 +7,11 @@ function CreateGreeting(props) {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const { setModal } = useContext(ModalContext);
+  const inputToFocus = useRef(null);
+
+  useEffect(() => {
+    inputToFocus.current.focus();
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -27,7 +32,7 @@ function CreateGreeting(props) {
       <form className="Form Form--narrow mt20" onSubmit={handleSubmit}>
         <div className="Form-row">
           <label className="Form-label block ta-left mb5">Author</label>
-          <input className="Form-input w100p" type="text" value={author} onChange={(e) => setAuthor(e.target.value)} />
+          <input className="Form-input w100p" type="text" value={author} onChange={(e) => setAuthor(e.target.value)} ref={inputToFocus} />
         </div>
         <div className="Form-row">
           <label className="Form-label block ta-left mb5">Greeting</label>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Page from "../Page";
 import UserContext from "../../contexts/UserContext";
@@ -12,6 +12,11 @@ function LogIn() {
   const [error, setError] = useState("");
   const { setModal, setModalMessage } = useContext(ModalContext);
   const history = useHistory();
+  const inputToFocus = useRef(null);
+
+  useEffect(() => {
+    inputToFocus.current.focus();
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -35,7 +40,7 @@ function LogIn() {
           <label htmlFor="username" className="Form-label block ta-left mb5">
             Username
           </label>
-          <input id="username" name="username" className="Form-input w100p" type="text" autoComplete="off" onChange={(e) => setUsername(e.target.value)} />
+          <input id="username" name="username" className="Form-input w100p" type="text" autoComplete="off" onChange={(e) => setUsername(e.target.value)} ref={inputToFocus} />
         </div>
         <div className="Form-row">
           <label htmlFor="password" className="Form-label block ta-left mb5">
