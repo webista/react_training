@@ -1,15 +1,14 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import Page from "./Page";
 import Tile from "./Tile";
 import CustomSelect, { selectedOptionId } from "./CustomSelect";
 import MusicContext from "../contexts/MusicContext";
 import ModalContext from "../contexts/ModalContext";
 import TEXTS from "../Texts";
+import useComponentLog from "../hooks/useComponentLog";
 
 function MetalBands() {
-  useEffect(() => {
-    console.log("Metal Bands section rendered!");
-  }, []);
+  useComponentLog("MetalBands");
 
   const music = useContext(MusicContext);
   const metalStyles = [];

@@ -2,13 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/main.scss";
 import App from "./App";
-// import AppRouterTest from "./AppRouterTest";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    {/* <AppRouterTest /> */}
   </React.StrictMode>,
   document.getElementById("root")
 );

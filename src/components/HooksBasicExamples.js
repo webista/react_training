@@ -31,14 +31,12 @@ import React, { useContext, useEffect, useReducer, useRef, useState } from "reac
 import Page from "./Page";
 import Tile from "./Tile";
 import TestContext from "../contexts/TestContext";
+import useComponentLog from "../hooks/useComponentLog";
 
 function HooksBasicExamples() {
+  useComponentLog("HooksBasicExamples");
+
   const testContext = useContext(TestContext);
-
-  useEffect(() => {
-    console.log("Hooks playground section rendered!");
-  }, []);
-
   const testTileContent = {
     name: "Tile component",
     message: "Hi, I'm Tile component"

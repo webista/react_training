@@ -3,11 +3,10 @@ import Page from "./Page";
 import Greeting from "./Greeting";
 import CreateGreeting from "./CreateGreeting";
 import ModalContext from "../contexts/ModalContext";
+import useComponentLog from "../hooks/useComponentLog";
 
 function Greetings() {
-  useEffect(() => {
-    console.log("Greetings section rendered!");
-  }, []);
+  useComponentLog("Greetings");
 
   // ! Only run once the first time this component is rendered (an empty array as the second parameter)
   useEffect(() => {

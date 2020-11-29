@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Page from "../Page";
 import TEXTS from "../../Texts";
 import UserContext from "../../contexts/UserContext";
@@ -90,6 +90,9 @@ function Account() {
         <button type="submit" className="Button Button--primary w100p mt30">
           Save changes
         </button>
+        <Link to="/user" className="inline-block mt20">
+          Back
+        </Link>
       </form>
     </Page>
   );

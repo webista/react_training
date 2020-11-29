@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer, useState } from "react";
+import { Link } from "react-router-dom";
 import Page from "../Page";
 import TaskModal from "./TaskModal";
 import TaskModalContext from "../../contexts/TaskModalContext";
@@ -55,6 +56,10 @@ function Tasks() {
               >
                 Create a new
               </button>
+              <br />
+              <Link to="/user" className="Link inline-block mt20">
+                Back
+              </Link>
               <ul className="Tasks mt30">
                 {tasks.map((task) => (
                   <Task key={task.id} id={task.id} name={task.name} desc={task.desc} />

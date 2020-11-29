@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Page from "../Page";
 import UserContext from "../../contexts/UserContext";
 import ModalContext from "../../contexts/ModalContext";
@@ -53,6 +53,10 @@ function LogIn() {
           Log in
         </button>
       </form>
+      <br />
+      <Link to="/user" className="Link inline-block mt20">
+        Back
+      </Link>
     </Page>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import Page from "./Page";
 import CountContext from "../contexts/CountContext";
 import ModalContext from "../contexts/ModalContext";
@@ -12,7 +13,6 @@ function HomePage() {
   const textarea = useRef(null);
 
   useEffect(() => {
-    // Focus the textarea using useRef Hook
     textarea.current.focus();
   }, []);
 
@@ -26,6 +26,7 @@ function HomePage() {
       setModalMessage(text);
     } else {
       setError(TEXTS.input.empty);
+      textarea.current.focus();
     }
   }
 
@@ -35,6 +36,9 @@ function HomePage() {
       <p>Some text on Home page.</p>
       <p>
         Global count: <var>{countContext.countState}</var>
+      </p>
+      <p>
+        You can change it on <Link to="/new_page">New page</Link>
       </p>
       <form className="Form Form--narrow mt30" onSubmit={handleSubmit}>
         <label className="Form-label block">Type something</label>

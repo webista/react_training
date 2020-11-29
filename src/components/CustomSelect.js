@@ -1,16 +1,17 @@
 import React, { useState } from "react";
+import useComponentLog from "../hooks/useComponentLog";
 
 let selectedOptionId = "";
 
 function CustomSelect(props) {
-  console.log("CustomSelect component rendering");
-  console.log("CustomSelect data:", props.data);
+  useComponentLog("CustomSelect");
+
   const [isOpen, setIsOpen] = useState(false);
 
   function handleSelect(e) {
     e.preventDefault();
     setIsOpen((prevIsOpen) => !prevIsOpen);
-    console.log("Add listener");
+    // console.log("Add listener");
     document.addEventListener("click", handleOutsideSelect);
   }
 
@@ -26,7 +27,7 @@ function CustomSelect(props) {
     const select = document.getElementById("js-CustomSelect");
     const selectOptions = document.getElementById("js-CustomSelect-options");
     if (select && !select.contains(e.target)) {
-      console.log("Click outside the Select box");
+      // console.log("Click outside the Select box");
       select.classList.remove("is-active");
       selectOptions.classList.remove("is-active");
       setIsOpen(false);

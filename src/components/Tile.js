@@ -1,8 +1,9 @@
 import React from "react";
+import useComponentLog from "../hooks/useComponentLog";
 
 // Using object destructuring instead of props
 function Tile({ heading, text, style }) {
-  console.log("Tile component rendering");
+  useComponentLog("Tile");
 
   return (
     <li className="Tile" style={style}>

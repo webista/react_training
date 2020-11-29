@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import Page from "./Page";
 import TestContext from "../contexts/TestContext";
 import CountContext from "../contexts/CountContext";
@@ -37,6 +38,9 @@ function NewPage() {
             </button>
           </div>
         </form>
+        <p>
+          See updated count on <Link to="/">Home page</Link>
+        </p>
       </section>
     </Page>
   );
