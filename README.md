@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[Try it here](https://webista.github.io/react_training/).
+
 ## Custom added
 
 - npm install node-sass@4.14.1 (the latest version 5.0.0 caused an error)
