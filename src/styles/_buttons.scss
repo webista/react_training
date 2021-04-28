@@ -21,34 +21,6 @@
     cursor: pointer;
   }
 
-  &.is-active {
-    animation-name: Shake;
-    animation-duration: 0.7s;
-    animation-timing-function: cubic-bezier(0.36, 0.07, 0.19, 0.97);
-    animation-direction: normal;
-    animation-fill-mode: both;
-    animation-iteration-count: 1;
-    animation-delay: 0s;
-  }
-
-  &--tiny {
-    min-width: 0;
-    font-size: 12px;
-  }
-
-  &--small {
-    min-width: 0;
-    font-size: 14px;
-  }
-
-  &--wa {
-    width: auto;
-  }
-
-  &--w240 {
-    width: 240px;
-  }
-
   &--primary {
     background-color: $colorPrimary;
 

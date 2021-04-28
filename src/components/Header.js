@@ -41,7 +41,7 @@ function Header() {
             </li>
             <li className="Nav-item">
               <NavLink to="/user" activeClassName="is-active">
-                User playground
+                User page
               </NavLink>
             </li>
             <li className="Nav-item">

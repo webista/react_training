@@ -157,9 +157,9 @@ function HooksBasicExamples() {
     // Reducer initial state value
     const initialState = 0;
 
-    // Reducer function accepts two parameters: state and action
+    // ! Reducer function accepts two parameters: state and action
     function reducer(state, action) {
-      // Returns a new state by the action (Increment, Decrement, Reset)
+      // ! Returns a new state by the action (Increment, Decrement, Reset)
       switch (action.type) {
         case "increment":
           return state + 1;
@@ -174,7 +174,7 @@ function HooksBasicExamples() {
       }
     }
 
-    // Current state value and dispatch method from the reducer function above
+    // ! Current state value and dispatch method from the reducer function above
     const [count, dispatch] = useReducer(reducer, initialState);
 
     return (
@@ -234,6 +234,39 @@ function HooksBasicExamples() {
     );
   }
 
+  function InputWithRef() {
+    const [name, setName] = useState("");
+    const prevName = useRef();
+    const inputRef = useRef();
+
+    useEffect(() => {
+      prevName.current = name;
+    }, [name]);
+
+    function focus() {
+      inputRef.current.focus();
+    }
+
+    return (
+      <section>
+        <h3>useRef</h3>
+        <form className="Form mt20">
+          <div className="Form-row">
+            <label className="Form-label" htmlFor="name">
+              My name is <strong>{name}</strong> and it used to be <strong>{prevName.current}</strong>
+            </label>
+          </div>
+          <div className="Form-row">
+            <input className="Form-input" type="text" name="" onChange={(e) => setName(e.target.value)} id="name" ref={inputRef} value={name} />
+          </div>
+          <button className="Button Button--danger mt20" type="button" onClick={focus}>
+            Focus
+          </button>
+        </form>
+      </section>
+    );
+  }
+
   function ColorSwitcher() {
     const [isPrimary, setColor] = useState(true);
 
@@ -274,6 +307,7 @@ function HooksBasicExamples() {
       <Counter />
       <CounterWithReducer />
       <CounterWithRef />
+      <InputWithRef />
       <ColorSwitcher />
       <ShowHide />
     </Page>

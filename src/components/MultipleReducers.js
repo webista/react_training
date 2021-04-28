@@ -29,7 +29,7 @@ function MultipleReducers() {
     }
   }
 
-  // Current state value and dispatch method from the reducer function above
+  // ! Current state value and dispatch method from the reducer function above
   const [count, dispatch] = useReducer(reducer, initialState);
   const [countTwo, dispatchTwo] = useReducer(reducer, initialState);
 

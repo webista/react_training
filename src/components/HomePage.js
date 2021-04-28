@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Page from "./Page";
 import CountContext from "../contexts/CountContext";
 import ModalContext from "../contexts/ModalContext";
 import TEXTS from "../Texts";
+import logoReact from "../images/react.png";
 
 function HomePage() {
   const [text, setText] = useState("");
@@ -11,10 +12,6 @@ function HomePage() {
   const countContext = useContext(CountContext);
   const { setModal, setModalMessage } = useContext(ModalContext);
   const textarea = useRef(null);
-
-  useEffect(() => {
-    textarea.current.focus();
-  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -48,6 +45,7 @@ function HomePage() {
           Show it in a Modal
         </button>
       </form>
+      <img className="block-center mt30" src={logoReact} width="300" height="212" alt="React" />
     </Page>
   );
 }
