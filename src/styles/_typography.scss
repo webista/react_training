@@ -55,6 +55,11 @@ a {
   &:hover {
     color: $white;
   }
+
+  &:focus {
+    outline: 2px solid $colorPrimary;
+    outline-offset: 2px;
+  }
 }
 
 .Link {
@@ -63,6 +68,11 @@ a {
 
   &:hover {
     color: $white;
+  }
+
+  &:focus {
+    outline: 2px solid $colorPrimary;
+    outline-offset: 2px;
   }
 }
 
