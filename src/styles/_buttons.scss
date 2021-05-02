@@ -31,10 +31,10 @@
   }
 
   &--secondary {
-    background-color: $secondaryColor;
+    background-color: $colorSecondary;
 
     &:hover {
-      background-color: darken($secondaryColor, 5%);
+      background-color: darken($colorSecondary, 5%);
     }
   }
 
