@@ -25,7 +25,6 @@ function CustomSelect(props) {
     const select = document.getElementById("js-CustomSelect");
     const selectOptions = document.getElementById("js-CustomSelect-options");
     if (select && !select.contains(e.target)) {
-      // console.log("Click outside the Select box");
       select.classList.remove("is-active");
       selectOptions.classList.remove("is-active");
       setIsOpen(false);
