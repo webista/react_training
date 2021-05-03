@@ -23,14 +23,18 @@ function CustomSelect(props) {
 
   function handleOutsideSelect(e) {
     const select = document.getElementById("js-CustomSelect");
-    const selectOptions = document.getElementById("js-CustomSelect-options");
     if (select && !select.contains(e.target)) {
-      select.classList.remove("is-active");
-      selectOptions.classList.remove("is-active");
       setIsOpen(false);
       document.removeEventListener("click", handleOutsideSelect);
     }
   }
+
+  document.addEventListener("keydown", (e) => {
+    const key = e.key;
+    if (key === "Escape") {
+      setIsOpen(false);
+    }
+  });
 
   return (
     <div className={isOpen ? "CustomSelect is-active" : "CustomSelect"} id="js-CustomSelect" onMouseDown={handleSelect}>
