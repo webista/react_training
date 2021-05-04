@@ -13,6 +13,7 @@ import User from "./components/user/User";
 import FetchData from "./components/FetchData";
 import FetchDataWithReducer from "./components/FetchDataWithReducer";
 import Modal from "./components/Modal";
+import NotFound from "./components/NotFound";
 
 // Contexts
 import TestContext from "./contexts/TestContext";
@@ -61,6 +62,7 @@ function App() {
               <Route path="/user" exact component={User} />
               <Route path="/data_fetching" component={FetchData} />
               <Route path="/data_fetching-reducer" component={FetchDataWithReducer} />
+              <Route path="*" component={NotFound} />
             </Switch>
           </BrowserRouter>
           {modal && <Modal message={modalMessage} complexContent={modalComplexContent} />}
