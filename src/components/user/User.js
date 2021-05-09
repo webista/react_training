@@ -3,7 +3,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Page from "../Page";
 import UserLoggedOut from "./UserLoggedOut";
 import UserLoggedIn from "./UserLoggedIn";
-import LogIn from "./LogIn";
+// import LogIn from "./LogIn";
+import LogInWithReducer from "./LogInWithReducer";
 import SignUp from "./SignUp";
 import Account from "./Account";
 import Tasks from "./Tasks";
@@ -33,7 +34,8 @@ function User() {
               {user.isLoggedIn ? <UserLoggedIn /> : <UserLoggedOut />}
             </Page>
           </Route>
-          <Route path="/user/log_in" component={LogIn} exact />
+          {/* <Route path="/user/log_in" component={LogIn} exact /> */}
+          <Route path="/user/log_in" component={LogInWithReducer} exact />
           <Route path="/user/sign_up" component={SignUp} exact />
           <Route path="/user/account" component={Account} exact />
           <Route path="/user/tasks" component={Tasks} exact />
