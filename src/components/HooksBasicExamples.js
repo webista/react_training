@@ -37,10 +37,6 @@ function HooksBasicExamples() {
   useComponentLog("HooksBasicExamples");
 
   const testContext = useContext(TestContext);
-  const testTileContent = {
-    name: "Tile component",
-    message: "Hi, I'm Tile component"
-  };
 
   function Time() {
     const [time, setTime] = useState(new Date().toLocaleString());
@@ -283,13 +279,20 @@ function HooksBasicExamples() {
   function ShowHide() {
     const [isVisible, setIsVisible] = useState(false);
 
+    const testTileContent = {
+      name: "Tile component",
+      message: "Hi, I'm Tile component"
+    };
+
+    const {name, message} = testTileContent;
+
     return (
       <section>
         <h3>Show / hide</h3>
         <button type="button" className="Button Button--w240 Button--secondary ml5 mr5 mb10 mt30" onClick={() => setIsVisible(!isVisible)}>
           {isVisible ? "Hide Tile component" : "Show Tile component"}
         </button>
-        <div className="Tiles mt20">{isVisible && <Tile addedClass={"mt20"} heading={testTileContent.name} text={testTileContent.message} />}</div>
+        <ul className="Tiles mt20">{isVisible && <Tile heading={name} text={message} />}</ul>
       </section>
     );
   }
