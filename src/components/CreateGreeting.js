@@ -22,7 +22,7 @@ function CreateGreeting(props) {
       setError("");
       setModal(false);
     } else {
-      setError("Please fill Author and Message inputs");
+      setError("Please fill Author and Greeting inputs");
     }
   }
 
