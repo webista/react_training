@@ -6,7 +6,7 @@ function CreateGreeting(props) {
   const [author, setAuthor] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
-  const { setModal } = useContext(ModalContext);
+  const { setModal, setModalComplexContent } = useContext(ModalContext);
   const inputToFocus = useRef(null);
 
   useEffect(() => {
@@ -21,6 +21,7 @@ function CreateGreeting(props) {
       setMessage("");
       setError("");
       setModal(false);
+      setModalComplexContent(null);
     } else {
       setError("Please fill Author and Greeting inputs");
     }
