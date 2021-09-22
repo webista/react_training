@@ -230,39 +230,6 @@ function HooksBasicExamples() {
     );
   }
 
-  function InputWithRef() {
-    const [name, setName] = useState("");
-    const prevName = useRef();
-    const inputRef = useRef();
-
-    useEffect(() => {
-      prevName.current = name;
-    }, [name]);
-
-    function focus() {
-      inputRef.current.focus();
-    }
-
-    return (
-      <section>
-        <h3>useRef</h3>
-        <form className="Form mt20">
-          <div className="Form-row">
-            <label className="Form-label" htmlFor="name">
-              My name is <strong>{name}</strong> and it used to be <strong>{prevName.current}</strong>
-            </label>
-          </div>
-          <div className="Form-row">
-            <input className="Form-input" type="text" name="" onChange={(e) => setName(e.target.value)} id="name" ref={inputRef} value={name} />
-          </div>
-          <button className="Button Button--danger mt20" type="button" onClick={focus}>
-            Focus
-          </button>
-        </form>
-      </section>
-    );
-  }
-
   function ColorSwitcher() {
     const [isPrimary, setColor] = useState(true);
 
@@ -284,7 +251,7 @@ function HooksBasicExamples() {
       message: "Hi, I'm Tile component"
     };
 
-    const {name, message} = testTileContent;
+    const { name, message } = testTileContent;
 
     return (
       <section>
