@@ -277,7 +277,6 @@ function HooksBasicExamples() {
       <Counter />
       <CounterWithReducer />
       <CounterWithRef />
-      <InputWithRef />
       <ColorSwitcher />
       <ShowHide />
     </Page>
