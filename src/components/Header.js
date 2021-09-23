@@ -1,11 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Header() {
   return (
     <header className="Header">
       <div className="Container">
-        <h1>React Training</h1>
+        <h1>
+          <Link to="/" exact>
+            React Training
+          </Link>
+        </h1>
         <p>Simple app for learning React</p>
         <nav className="Nav">
           <ul>

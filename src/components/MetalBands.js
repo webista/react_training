@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import Page from "./Page";
 import Tile from "./Tile";
-import CustomSelect, { selectedOptionId } from "./CustomSelect";
+import CustomSelect from "./CustomSelect";
 import MusicContext from "../contexts/MusicContext";
 import ModalContext from "../contexts/ModalContext";
 import TEXTS from "../Texts";
@@ -18,7 +18,7 @@ function MetalBands() {
   function handleSubmit(e) {
     e.preventDefault();
     if (e.target.querySelector("select").value) {
-      console.log(`Bands style id ${selectedOptionId} were rendered:`, music[selectedOptionId].bands);
+      let selectedOptionId = e.target.querySelector("select").value;
       setBands(music[selectedOptionId].bands);
     } else {
       setModal(true);

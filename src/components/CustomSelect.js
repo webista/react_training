@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import useComponentLog from "../hooks/useComponentLog";
 
-let selectedOptionId = "";
-
 function CustomSelect(props) {
   useComponentLog("CustomSelect");
 
@@ -16,7 +14,7 @@ function CustomSelect(props) {
 
   function handleOption(props) {
     console.log("Selected option id:", props.target.value);
-    selectedOptionId = props.target.value;
+    let selectedOptionId = props.target.value;
     const select = document.querySelector("#js-CustomSelect select");
     select.value = selectedOptionId;
   }
@@ -57,5 +55,4 @@ function CustomSelect(props) {
   );
 }
 
-export { selectedOptionId };
 export default CustomSelect;

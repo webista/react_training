@@ -126,9 +126,9 @@
     //     border: 1px solid #6ab606;
     // }
 
-    &:active,
+    &:hover,
     &:focus,
-    &:hover {
+    &:active {
       border-color: $colorPrimary;
       outline: none;
     }

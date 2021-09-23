@@ -39,7 +39,10 @@ function NewPage() {
           </div>
         </form>
         <p>
-          See updated count on <Link to="/">Home page</Link>
+          See updated count on{" "}
+          <Link to="/" exact>
+            Home page
+          </Link>
         </p>
       </section>
     </Page>
