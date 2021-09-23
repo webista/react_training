@@ -32,12 +32,10 @@ body {
     a {
       font-size: $baseFontSize + 2;
 
-      &:focus {
-        outline: none;
-      }
-
+      &:focus,
       &.is-active {
         color: $white;
+        outline: none;
       }
     }
   }
