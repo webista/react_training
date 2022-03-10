@@ -12,7 +12,7 @@ function CustomSelect(props) {
   function handleCustomSelect(e) {
     e.preventDefault();
     setIsOpen((prevIsOpen) => !prevIsOpen);
-    document.addEventListener("click", handleOutsideSelect);
+    document.addEventListener("click", handleOutsideCustomSelect);
   }
 
   function handleCustomOption(props) {
@@ -20,10 +20,10 @@ function CustomSelect(props) {
     select.value = selectedOptionId;
   }
 
-  function handleOutsideSelect(e) {
+  function handleOutsideCustomSelect(e) {
     if (customSelect && !customSelect.contains(e.target)) {
       setIsOpen(false);
-      document.removeEventListener("click", handleOutsideSelect);
+      document.removeEventListener("click", handleOutsideCustomSelect);
     }
   }
 
