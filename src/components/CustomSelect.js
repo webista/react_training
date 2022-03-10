@@ -6,22 +6,22 @@ function CustomSelect(props) {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  function handleSelect(e) {
+  const select = document.querySelector("#js-CustomSelect select");
+  const customSelect = document.getElementById("js-CustomSelect");
+
+  function handleCustomSelect(e) {
     e.preventDefault();
     setIsOpen((prevIsOpen) => !prevIsOpen);
     document.addEventListener("click", handleOutsideSelect);
   }
 
-  function handleOption(props) {
-    console.log("Selected option id:", props.target.value);
+  function handleCustomOption(props) {
     let selectedOptionId = props.target.value;
-    const select = document.querySelector("#js-CustomSelect select");
     select.value = selectedOptionId;
   }
 
   function handleOutsideSelect(e) {
-    const select = document.getElementById("js-CustomSelect");
-    if (select && !select.contains(e.target)) {
+    if (customSelect && !customSelect.contains(e.target)) {
       setIsOpen(false);
       document.removeEventListener("click", handleOutsideSelect);
     }
@@ -35,7 +35,7 @@ function CustomSelect(props) {
   });
 
   return (
-    <div className={isOpen ? "CustomSelect is-active" : "CustomSelect"} id="js-CustomSelect" onMouseDown={handleSelect}>
+    <div className={isOpen ? "CustomSelect is-active" : "CustomSelect"} id="js-CustomSelect" onMouseDown={handleCustomSelect}>
       <select>
         <option value="">--Choose one--</option>
         {props.data.map((optionItem, index) => (
@@ -46,7 +46,7 @@ function CustomSelect(props) {
       </select>
       <ul className={isOpen ? "CustomSelect-options is-active" : "CustomSelect-options"} id="js-CustomSelect-options">
         {props.data.map((optionItem, index) => (
-          <li value={index} key={index} onMouseDown={handleOption}>
+          <li value={index} key={index} onMouseDown={handleCustomOption}>
             {optionItem}
           </li>
         ))}

@@ -18,7 +18,7 @@ function MetalBands() {
   function handleSubmit(e) {
     e.preventDefault();
     if (e.target.querySelector("select").value) {
-      let selectedOptionId = e.target.querySelector("select").value;
+      const selectedOptionId = e.target.querySelector("select").value;
       setBands(music[selectedOptionId].bands);
     } else {
       setModal(true);
@@ -34,7 +34,7 @@ function MetalBands() {
   return (
     <Page title="Metal bands">
       <h2>Metal bands</h2>
-      <p>My favorite bands rendering with Custom select box</p>
+      <p>My favorite bands rendering with custom select box</p>
       <form className="Form mt20" onSubmit={handleSubmit}>
         <div className="Form-rowFlex">
           <label className="Form-label mr10 xs-mb10">Music style</label>
